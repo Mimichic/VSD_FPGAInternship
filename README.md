@@ -79,7 +79,7 @@ gvim sky130_fd_sc_hd__tt_025C_1v80.lib
 
 ![Hierarchy visible](result_images/hierarchy_visible.png)
 
-**Flat** – all hierarchy dissolved into one netlist:
+**Flat** – all hierarchy is dissolved and the internal functioning of the modules are displayed when the "show" command is used:
 
 ```bash
 > flatten
@@ -89,7 +89,7 @@ gvim sky130_fd_sc_hd__tt_025C_1v80.lib
 ![Flattened netlist](result_images/flattened+netlist.png)
 ![Flattened schematic](result_images/flattened_sch.png)
 
-**Sub-module synthesis** – useful for large or repeated blocks:
+**Sub-module synthesis** – Primarily useful for large or repeated blocks:
 
 ```bash
 > synth -top sub_module1
@@ -99,7 +99,7 @@ gvim sky130_fd_sc_hd__tt_025C_1v80.lib
 
 ### Step 8 – Flop Coding Styles
 
-Simulate and synthesise different D flip-flop variants. Run `dfflibmap` before ABC to pick the correct flip-flop cells:
+Simulate synthesise and examine different D flip-flop variants. Run `dfflibmap` before ABC to pick the correct flip-flop cells. The primary flip flops examined were those with asynchronus and synchronous resets: 
 
 ```bash
 > dfflibmap -liberty sky130_fd_sc_hd__tt_025C_1v80.lib
@@ -114,8 +114,7 @@ Simulate and synthesise different D flip-flop variants. Run `dfflibmap` before A
 | Sync reset | ![](result_images/dff_syncres.png) | ![](result_images/d_ff_syncres.png) |
 
 ### Step 9 – Special optimisations (mult2, mult8)
-
-Multiplying by powers of 2 is a left-shift in binary — Yosys maps these with zero standard cells, purely through rewiring.
+Multplying by 2 is essentially performing a left shift operation. Yosys helps achieve this simply by rewiring the inputs to the outputs:
 
 ```bash
 > synth -top mult2
