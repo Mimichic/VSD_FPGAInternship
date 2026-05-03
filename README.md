@@ -62,7 +62,7 @@ Re-run the testbench on the synthesised netlist to confirm it matches RTL simula
 
 ### Step 6 – Exploring libraries
 
-Open the Sky130 `.lib` file and study cell attributes: timing arcs, drive strength, and power. We also further employ a multple_module.v file to examine the two main kinds of synthesis.
+Open the Sky130 .lib file and study cell attributes: timing arcs, drive strength, and power. We also further employ a multple_module.v file to examine the two main kinds of synthesis.
 
 ```bash
 gvim sky130_fd_sc_hd__tt_025C_1v80.lib
@@ -99,7 +99,7 @@ gvim sky130_fd_sc_hd__tt_025C_1v80.lib
 
 ### Step 8 – Flop Coding Styles
 
-Simulate synthesise and examine different D flip-flop variants. Run `dfflibmap` before ABC to pick the correct flip-flop cells. The primary flip flops examined were those with asynchronus and synchronous resets: 
+Simulate synthesise and examine different D flip-flop variants. Run dfflibmap before ABC to pick the correct flip-flop cells. The primary flip flops examined were those with asynchronus and synchronous resets: 
 
 ```bash
 > dfflibmap -liberty sky130_fd_sc_hd__tt_025C_1v80.lib
