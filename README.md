@@ -1,10 +1,12 @@
 # RTL Design & Synthesis Workshop
 
-Hands-on internship covering Verilog RTL design, logic synthesis, and flop coding styles using open-source EDA tools.
+Internship screening covering Verilog RTL design, logic synthesis, and flop coding styles using EDA tools.
 
 ---
 
 ## Module 1 – Introduction to Verilog RTL Design & Synthesis
+
+Here, we begin with a brief introduction to RTL coding. Explaining how it serves as an interpretation of our abstract logic. We have leant how to simulate using iverilog, view waveforms in GTKWave and perform synthesis using Yosys.
 
 ### Step 1 – Simulate with iverilog
 
@@ -25,7 +27,7 @@ gtkwave dump.vcd
 ![GTKWave waveform](result_images/task2.png)
 
 ### Step 3 – Synthesise with Yosys
-
+Synthesis maps the abstract hardware logic to cells, this is done by generating netlists.
 ```bash
 yosys
 > read_liberty -lib sky130_fd_sc_hd__tt_025C_1v80.lib
