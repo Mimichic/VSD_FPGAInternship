@@ -22,7 +22,7 @@ iverilog -o sim design.v testbench.v
 gtkwave dump.vcd
 ```
 
-![GTKWave waveform](result_images/task2gtkwave.png)
+![GTKWave waveform](result_images/task2.png)
 
 ### Step 3 – Synthesise with Yosys
 
