@@ -19,6 +19,7 @@ iverilog -o sim design.v testbench.v
 ![iverilog simulation](result_images/task1.png)
 
 ### Step 2 – View waveforms in GTKWave
+The functionality and timing behavior of our module can be monitored using testbenches (or tb files). Here we examined a simple 2 x 1 mux.
 
 ```bash
 gtkwave dump.vcd
@@ -37,7 +38,8 @@ yosys
 
 ![Yosys initialisation](result_images/yosysinitialisation.png)
 
-### Step 4 – Map to standard cells and write netlist
+### Step 4 – Map to standard cells 
+Yosys enables us to examine netlists and leaf cells vua the following few commands:
 
 ```bash
 > abc -liberty sky130_fd_sc_hd__tt_025C_1v80.lib
@@ -58,9 +60,9 @@ Re-run the testbench on the synthesised netlist to confirm it matches RTL simula
 
 ## Module 2 – Timing Libs, Hierarchical vs Flat Synthesis & Flop Coding Styles
 
-### Step 6 – Explore timing libraries
+### Step 6 – Exploring libraries
 
-Open the Sky130 `.lib` file and study cell attributes: timing arcs, drive strength, and power.
+Open the Sky130 `.lib` file and study cell attributes: timing arcs, drive strength, and power. We also further employ a multple_module.v file to examine the two main kinds of synthesis.
 
 ```bash
 gvim sky130_fd_sc_hd__tt_025C_1v80.lib
@@ -68,7 +70,7 @@ gvim sky130_fd_sc_hd__tt_025C_1v80.lib
 
 ### Step 7 – Hierarchical vs Flat Synthesis
 
-**Hierarchical** – sub-module boundaries preserved:
+**Hierarchical** – As the name suggests, the hierarchy of the submodules are maintained and the schematic does not display the internal workings of our module:
 
 ```bash
 > synth -top multiple_modules
